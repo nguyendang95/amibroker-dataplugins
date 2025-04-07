@@ -1,0 +1,8 @@
+﻿  pch.cpp
+  AmibrokerUtilities.cpp
+  Binance.cpp
+  dllmain.cpp
+  Generating Code...
+Y:\data\CPlusPlus\Amibroker_BinanceRealtimeData\AmibrokerUtilities.cpp(67,1): error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+Y:\data\CPlusPlus\Amibroker_BinanceRealtimeData\Binance.cpp(104,1): error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+Y:\data\CPlusPlus\Amibroker_BinanceRealtimeData\dllmain.cpp(405,1): error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?

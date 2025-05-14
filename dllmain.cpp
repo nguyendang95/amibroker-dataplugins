@@ -214,6 +214,7 @@ static DWORD WINAPI ReadResponse(LPVOID lpParam)
         memcpy(strResponse, &rgbBuffer, dwTotalBytesTransferred);
         strResponse[dwTotalBytesTransferred] = (CHAR)'\0';
         nlohmann::json json = nlohmann::json::parse(strResponse);
+        delete[] strResponse;
         BinanceStreamResponse response = ParseBinanceStreamResponse(json);
         if (!response.Stream.empty()) {
             WebSocketState = STATE_WEB_SOCKET_RECEIVING_RESPONSE;
@@ -230,7 +231,6 @@ static DWORD WINAPI ReadResponse(LPVOID lpParam)
             SendMessage(hwnd, WM_USER_STREAMING_UPDATE, (WPARAM)response.Data.Symbol.c_str(), (LPARAM)&ri);
 
         }
-        delete[] strResponse;
     }
     if (!connectionClosedByServer) {
         DWORD dwError = WinHttpWebSocketClose(hWebSocket, WINHTTP_WEB_SOCKET_SUCCESS_CLOSE_STATUS, NULL, 0);

@@ -333,8 +333,7 @@ extern "C" {
             }
         }
         else {
-            size_t len = data.size();
-            if (len > 0) Subscribe(hWebSocket, {strSymbol});
+            Subscribe(hWebSocket, {strSymbol});
             return 0;
         }
         return nLastValid++;
